@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "505459091506",
+    "project_id": "studentsparks-13fbf",
+    "storage_bucket": "studentsparks-13fbf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505459091506:android:838fe91957cc4cf7fcb42b",
+        "android_client_info": {
+          "package_name": "com.coding.studentsparks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTe_YKdYo_Qxa5tOKhTPCwwIfaxFgKq1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TodoFragment todoFragment = new TodoFragment();
     TeachersFragment teachersFragment = new TeachersFragment();
     DrawingFragment drawingFragment = new DrawingFragment();
-    chatbotFragment chatbotFragment = new chatbotFragment();
+
 
 
 
@@ -45,14 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 } else if (id == R.id.drawing) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, drawingFragment).commit();
                     return true;
-                } else if (id == R.id.chatbot) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, chatbotFragment).commit();
-                    return true;
+                }
 
-            }
+
 
 
                 return false;
+
             }
         });
 

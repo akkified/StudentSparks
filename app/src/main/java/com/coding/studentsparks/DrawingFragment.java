@@ -33,50 +33,73 @@ public class DrawingFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        Button pencil = getView().findViewById(R.id.draw_button);
+        Button eraser = getView().findViewById(R.id.erase_button);
+        Button red = getView().findViewById(R.id.red_button);
+        Button yello = getView().findViewById(R.id.yello_button);
+        Button green = getView().findViewById(R.id.green_button);
+        Button magenta = getView().findViewById(R.id.magenta_button);
+        Button blue = getView().findViewById(R.id.blue_button);
 
-
+        eraser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pathList.clear();
+                colorList.clear();
+                path.reset();
+            }
+        });
+        pencil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.BLACK);
+                currentColor(paint_brush.getColor());
+            }
+        });
+        red.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.RED);
+                currentColor(paint_brush.getColor());
+            }
+        });
+        yello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.YELLOW);
+                currentColor(paint_brush.getColor());
+            }
+        });
+        green.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.GREEN);
+                currentColor(paint_brush.getColor());
+            }
+        });
+        magenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.MAGENTA);
+                currentColor(paint_brush.getColor());
+            }
+        });
+        blue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paint_brush.setColor(Color.BLUE);
+                currentColor(paint_brush.getColor());
+            }
+        });
     }
 
 
-    public void pencil(View view) {
-        paint_brush.setColor(Color.BLACK);
-        currentColor(paint_brush.getColor());
-    }
-
-    public void eraser(View view) {
-        pathList.clear();
-        colorList.clear();
-        path.reset();
-    }
 
 
 
 
 
-    public void redColor(View view) {
-        paint_brush.setColor(Color.RED);
-        currentColor(paint_brush.getColor());
-    }
 
-    public void yelloColor(View view) {
-        paint_brush.setColor(Color.YELLOW);
-        currentColor(paint_brush.getColor());
-    }
-
-    public void greenColor(View view) {
-        paint_brush.setColor(Color.GREEN);
-        currentColor(paint_brush.getColor());
-    }
-
-    public void magentaColor(View view) {
-        paint_brush.setColor(Color.MAGENTA);
-        currentColor(paint_brush.getColor());
-    }
-
-    public void blueColor(View view) {
-        paint_brush.setColor(Color.BLUE);
-        currentColor(paint_brush.getColor());
-    }
     public void currentColor(int c){
         current_brush = c;
         path = new Path();

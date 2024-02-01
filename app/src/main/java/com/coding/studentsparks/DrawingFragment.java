@@ -31,7 +31,7 @@ public class DrawingFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_drawing, container, false);
     }
 
-    @Override
+            @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Button pencil = getView().findViewById(R.id.draw_button);
         Button eraser = getView().findViewById(R.id.erase_button);

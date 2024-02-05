@@ -2,6 +2,7 @@ package com.coding.studentsparks;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.credentials.CredentialManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,12 +13,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-
     BottomNavigationView bottomNavigationView;
 
     TodoFragment todoFragment = new TodoFragment();
     TeachersFragment teachersFragment = new TeachersFragment();
     DrawingFragment drawingFragment = new DrawingFragment();
+
+    HomeFragment homeFragment = new HomeFragment();
 
 
 
@@ -28,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, todoFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -45,7 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (id == R.id.drawing) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, drawingFragment).commit();
                     return true;
+                } else if (id == R.id.home) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                    return true;
                 }
+
 
 
 

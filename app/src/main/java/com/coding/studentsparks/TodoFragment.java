@@ -1,6 +1,9 @@
 package com.coding.studentsparks;
 
+import static com.coding.studentsparks.MainActivity.sharedPreferences;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import kotlin.text.UStringsKt;
 
@@ -32,9 +36,9 @@ public class TodoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            items = savedInstanceState.getStringArrayList("To-do");
-            Toast.makeText(getActivity().getApplicationContext(), "saved instance state is not empty", Toast.LENGTH_LONG).show();
+        String savedList = sharedPreferences.getString("my_list_key", null);
+        if (savedList != null){
+            items = new ArrayList<>(Arrays.asList(savedList.split(",")));
         }
         if (items == null) {
             items = new ArrayList<>();
@@ -59,9 +63,11 @@ public class TodoFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putStringArrayList("To-do", items);
+    public void onStop() {
+        super.onStop();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("my_list_key", items.toString());
+        editor.apply();
     }
 
     private void setUpListViewListener() {

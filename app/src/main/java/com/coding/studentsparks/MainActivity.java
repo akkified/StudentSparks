@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.CredentialManager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     DrawingFragment drawingFragment = new DrawingFragment();
 
     HomeFragment homeFragment = new HomeFragment();
+    public static SharedPreferences sharedPreferences;
 
 
 
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPreferences = getSharedPreferences("my_list_prefs", Context.MODE_PRIVATE);
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -60,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 return false;
 
             }
+
         });
 
     }
+
 }

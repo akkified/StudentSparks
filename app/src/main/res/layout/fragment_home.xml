@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C4EEFF"
     tools:context=".HomeFragment">
 
     <TextView
@@ -14,7 +13,7 @@
         android:layout_marginStart="55dp"
         android:layout_marginTop="464dp"
         android:text="Progress"
-        android:textColor="#4a4550"
+        android:textColor="@color/white"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +25,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="196dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#d8bcfc"
         android:text="My Tasks"
-        android:textColor="#4a4550"
+        android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +39,7 @@
         android:layout_marginStart="55dp"
         android:layout_marginTop="106dp"
         android:text="Hello, "
-        android:textColor="#4A4550"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +51,7 @@
         android:layout_marginStart="55dp"
         android:layout_marginTop="138dp"
         android:text="Have a great day!"
-        android:textColor="#4a4550"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +62,7 @@
         android:layout_marginStart="121dp"
         android:layout_marginTop="106dp"
         android:text="Akhil!"
-        android:textColor="#4a4550"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,12 +77,13 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/vecteezy_profile_icon_design_vector_5544718"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/auto_complete_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
             android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>

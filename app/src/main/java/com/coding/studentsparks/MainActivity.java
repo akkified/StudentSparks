@@ -3,6 +3,9 @@ package com.coding.studentsparks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.CredentialManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,20 +15,23 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
+import java.util.Objects;
+
+public class MainActivity extends AppCompatActivity{
+    com.google.android.material.navigation.NavigationView navigationView;
 
     TodoFragment todoFragment = new TodoFragment();
-    TeachersFragment teachersFragment = new TeachersFragment();
     DrawingFragment drawingFragment = new DrawingFragment();
 
     HomeFragment homeFragment = new HomeFragment();
+
+    TeachersFragment teachersFragment = new TeachersFragment();
+
+    WavgFragment wavgFragment = new WavgFragment();
+
     public static SharedPreferences sharedPreferences;
-
-
 
 
 
@@ -36,28 +42,30 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("my_list_prefs", Context.MODE_PRIVATE);
 
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        navigationView = findViewById(R.id.navigation_view);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.todo){
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, todoFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, todoFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
                         return true;
-                } else if (id == R.id.teachers) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, teachersFragment).commit();
-                    return true;
                 } else if (id == R.id.drawing) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, drawingFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, drawingFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+                    return true;
+                } else if (id == R.id.teachers) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, teachersFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+                    return true;
+                } else if (id == R.id.wavg) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, wavgFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
                     return true;
                 } else if (id == R.id.home) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
                     return true;
                 }
-
 
 
 

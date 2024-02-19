@@ -29,7 +29,7 @@ import kotlin.text.UStringsKt;
 public class TodoFragment extends Fragment {
 
     private ArrayList<String> items;
-    private ArrayAdapter<String> itemsAdapter;
+    static ArrayAdapter<String> itemsAdapter;
     private ListView listView;
     private Button button;
 
@@ -43,6 +43,9 @@ public class TodoFragment extends Fragment {
         if (items == null) {
             items = new ArrayList<>();
         }
+//        if (savedList.length() == 0){
+//            items = items.toString();
+//        }
         return inflater.inflate(R.layout.fragment_todo, container, false);
     }
     @Override

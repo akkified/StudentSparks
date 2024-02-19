@@ -4,6 +4,7 @@ import static com.coding.studentsparks.display.colorList;
 import static com.coding.studentsparks.display.current_brush;
 import static com.coding.studentsparks.display.pathList;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class DrawingFragment extends Fragment {
         Button green = getView().findViewById(R.id.green_button);
         Button magenta = getView().findViewById(R.id.magenta_button);
         Button blue = getView().findViewById(R.id.blue_button);
+        Button share = getView().findViewById(R.id.share_button);
 
         eraser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +91,20 @@ public class DrawingFragment extends Fragment {
             public void onClick(View v) {
                 paint_brush.setColor(Color.BLUE);
                 currentColor(paint_brush.getColor());
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("image/jpeg");
+                String Body = "Share Your Drawing!";
+                String Sub = "You can share through any platform!";
+                intent.putExtra(Intent.EXTRA_TEXT, Body);
+                intent.putExtra(Intent.EXTRA_TEXT, Sub);
+                startActivity(Intent.createChooser(intent, "Share using: "));
+
             }
         });
     }

@@ -22,6 +22,7 @@ public class HomeFragment extends Fragment {
     ArrayAdapter<String> adapterItems;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class HomeFragment extends Fragment {
         adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.list_item, item);
         autoCompleteTextView.setAdapter(adapterItems);
         autoCompleteTextView.setOnItemClickListener((adapterView, view1, i, l) -> {
-//            String item = adapterView.getItemAtPosition(i).toString();
+//      String item = adapterView.getItemAtPosition(i).toString();
 
         });
 

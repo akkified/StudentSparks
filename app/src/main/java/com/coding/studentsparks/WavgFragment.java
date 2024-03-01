@@ -36,6 +36,7 @@ public class WavgFragment extends Fragment {
         EditText ss = view.findViewById(R.id.subss);
         EditText wl = view.findViewById(R.id.subwl);
         Button calc = view.findViewById(R.id.calc);
+        Button clear = view.findViewById(R.id.clear);
         TextView gpa = view.findViewById(R.id.gpa);
 
 
@@ -49,9 +50,47 @@ public class WavgFragment extends Fragment {
 
             float avg = sum / 5;
 
-            String avg1 = Float.toString(avg);
+            String avg1;
 
-            gpa.setText(avg1);
+            if (avg >= 97) {
+                avg1 = "4";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 93 && avg <= 96) {
+                avg1 = "4";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 90 && avg <= 92) {
+                avg1 = "3.7";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 87 && avg <= 89) {
+                avg1 = "3.3";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 83 && avg <= 86) {
+                avg1 = "3";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 80 && avg <= 82) {
+                avg1 = "2.7";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 77 && avg <= 79) {
+                avg1 = "2.3";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 73 && avg <= 76) {
+                avg1 = "2";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else if (avg >= 70 && avg <= 72) {
+                avg1 = "1.7";
+                gpa.setText("The GPA is " + avg1 + " and the average is " + avg);
+            } else {
+                gpa.setText("The average is " + avg);
+            }
+
+        });
+        clear.setOnClickListener(v -> {
+            ela.setText("");
+            math.setText("");
+            wl.setText("");
+            sci.setText("");
+            ss.setText("");
+            gpa.setText("");
 
         });
     }

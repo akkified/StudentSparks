@@ -8,6 +8,7 @@ import androidx.fragment.app.ListFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity{
     TeachersFragment teachersFragment = new TeachersFragment();
 
     WavgFragment wavgFragment = new WavgFragment();
+    Login login = new Login();
 
     public static SharedPreferences sharedPreferences;
 
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity{
                     return true;
                 } else if (id == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+                    return true;
+                } else if (id == R.id.login) {
+                    startActivity(new Intent(MainActivity.this, Login.class));
                     return true;
                 }
 

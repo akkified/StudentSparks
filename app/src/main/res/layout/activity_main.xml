@@ -22,4 +22,5 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/bottom_nav_menu" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,5 +1,8 @@
 package com.coding.studentsparks;
 
+
+import static com.coding.studentsparks.Login.name;
+
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -17,9 +20,9 @@ import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
-    String[] item = {"Settings", "Profile", "Logout"};
-    AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> adapterItems;
+    TextView name_tv;
+    TextView hello_tv;
+
 
 
 
@@ -33,18 +36,23 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        autoCompleteTextView = getView().findViewById(R.id.auto_complete_txt);
-        adapterItems = new ArrayAdapter<String>(getActivity(), R.layout.list_item, item);
-        autoCompleteTextView.setAdapter(adapterItems);
-        autoCompleteTextView.setOnItemClickListener((adapterView, view1, i, l) -> {
-//      String item = adapterView.getItemAtPosition(i).toString();
+        name_tv = view.findViewById(R.id.name_tv);
+        hello_tv = view.findViewById(R.id.hello_tv);
+        if (name != null) {
+            hello_tv.setText("Hello, ");
+            name_tv.setText(name);
+        }
+        if (name == null || name == ""){
+            hello_tv.setText("Hello!");
+            name_tv.setText("");
+        }
 
-        });
 
     }
 }
